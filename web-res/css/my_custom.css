@@ -1,0 +1,41 @@
+.row {
+    padding:1px !important;
+    margin:1px !important;
+}
+
+.customBtn {
+    font-weight: bold;
+    border-radius: 0px;
+}
+
+
+.commonLeftTable {
+    margin:1px;
+    padding:1px;
+}
+
+.commonLeftTable td{
+    margin:0px !important;
+    padding:5px !important;
+}
+
+.commonLeftTableTd:hover {
+   background: gainsboro;
+   color:red;
+   cursor:pointer;
+}
+
+.responseTableTd {
+    margin:0px !important;
+    padding:5px !important;
+}
+
+.commonButtonsPanel {
+   padding: 0px;
+   border:0px red solid;
+}
+
+.commonButtonsPanel button:hover{
+   color:goldenrod;
+}
+

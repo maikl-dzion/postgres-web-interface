@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/@carbon/charts/style.css" />
+</head>
+<body>
+<div id="my-bar-chart"></div>
+<script src="https://unpkg.com/@carbon/charts@0.16.25"></script>
+<script>
+    // grab chart holder DOM element
+    const chartHolder = document.getElementById('my-bar-chart');
+    const stackedBarData = {
+        // ...see next section
+    };
+    const stackedBarOptions = {
+        // ...see next section
+    };
+    // initialize the chart
+    new Charts.BarChart(chartHolder, {
+        data: stackedBarData,
+        options: stackedBarOptions,
+    });
+</script>
+</body>
+</html>

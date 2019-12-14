@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Balay Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+
+    <!--&lt;!&ndash; Facebook and Twitter integration &ndash;&gt;-->
+    <!--<meta property="og:title" content=""/>-->
+    <!--<meta property="og:image" content=""/>-->
+    <!--<meta property="og:url" content=""/>-->
+    <!--<meta property="og:site_name" content=""/>-->
+    <!--<meta property="og:description" content=""/>-->
+    <!--<meta name="twitter:title" content="" />-->
+    <!--<meta name="twitter:image" content="" />-->
+    <!--<meta name="twitter:url" content="" />-->
+    <!--<meta name="twitter:card" content="" />-->
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--<script src="js/modernizr-2.6.2.min.js"></script>-->
+    <!--<script src="js/respond.min.js"></script>-->
+
+    <script>
+        const apiUrl = 'http://bolderfest.ru/API_DB_CONTROL_PANEL/api.php';
+    </script>
+
+    <style>
+
+        .data-table-show{
+           width:100%
+        }
+
+        table.data-table-show td, table.data-table-show th{
+            border:1px gainsboro solid;
+            padding:4px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="colorlib-page" >
+
+    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+    <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+        <h4 id="colorlib-logo"><a href="index.html">Список таблиц</a></h4>
+
+        <nav id="colorlib-main-menu" role="navigation">
+            <ul>
+                <!--<li class="colorlib-active"><a href="index.html">Home</a></li>-->
+                <li v-for="(value, tableName) in tableList" >
+                    <!--<a href="work.html" >{{fName}}</a>-->
+                    <a href="#" @click="getTableFields(tableName)" style="cursor:pointer" >{{tableName}}</a>
+                </li>
+                <!--<li><a href="about.html">About</a></li>-->
+
+            </ul>
+        </nav>
+
+        <div class="colorlib-footer">
+            <p><button class="btn btn-primary" @click="confModalOpen()" >Установить новые настройки</button></p>
+            <ul>
+                <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                <li><a href="#"><i class="icon-twitter2"></i></a></li>
+                <li><a href="#"><i class="icon-instagram"></i></a></li>
+                <li><a href="#"><i class="icon-linkedin2"></i></a></li>
+            </ul>
+        </div>
+
+    </aside>
+
+
+    <div id="colorlib-main">
+
+        <div v-if="tableName" class="colorlib-contact">
+
+            <div class="colorlib-narrow-content">
+
+                <div class="row">
+                    <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+                        <span class="heading-meta">{{tableName}}</span>
+                        <h2 class="colorlib-heading">Поля таблицы :: {{tableName}}</h2>
+                    </div>
+
+                    <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+                        <button @click="clickOpenPanel" class="btn btn-primary btn-send-message" >Панель управления</button>
+                    </div>
+                </div>
+
+                <div v-if="showPanel" class="row row-bottom-padded-md">
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div v-for="(values, fieldName) in tableInfo" :key="fieldName"
+                                     class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="colorlib-icon">
+                                        <i class="flaticon-sketch"></i>
+                                    </div>
+                                    <div class="colorlib-text">
+
+                                        <div class="" >
+                                            <label class="" style="float:left" >{{fieldName}}</label>
+                                            <button @click="deleteField(fieldName)"
+                                                    class="btn btn-primary btn-send-message" style="float:right; background: red"  >
+                                                Удалить
+                                            </button>
+                                            <div style="clear:both"></div>
+                                        </div>
+
+                                        <input v-model="values.column_name"
+                                               @focus="initRenameField(fieldName)"
+                                               @change="renameField(fieldName)"
+                                               type="text" class="form-control" placeholder="Name">
+                                        <p>{{values}}</p>
+
+                                        <!--<p>{{renameName}}</p>-->
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="colorlib-icon">
+                                        <i class="flaticon-engineering"></i>
+                                    </div>
+                                    <div class="colorlib-text">
+                                        <h3>Добавить новые поля</h3>
+                                        <button class="btn btn-primary" @click="showModalOpen()" >Массив полей</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12"><hr></div>
+
+                            <div class="col-md-12">
+                                <div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="colorlib-icon">
+                                        <i class="flaticon-engineering"></i>
+                                    </div>
+                                    <div class="colorlib-text">
+                                        <h3>Добавить новое поле</h3>
+                                        <label>Имя поля</label>
+                                        <input  v-model="newField.name" type="text" class="form-control" placeholder="Имя поля">
+                                        <label>Тип поля</label>
+                                        <select v-model="newField.type" class="form-control" placeholder="Тип поля">
+                                            <option value="INTEGER">Число</option>
+                                            <option value="VARCHAR">Строка</option>
+                                            <option value="TEXT">Текст</option>
+                                        </select>
+
+                                        <p></p>
+                                        <button @click="addField()" class="btn btn-primary btn-send-message" style=" background: green">
+                                            Добавить поле
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12"><hr></div>
+
+                            <div class="col-md-12">
+                                <div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="colorlib-icon">
+                                        <i class="flaticon-engineering"></i>
+                                    </div>
+                                    <div class="colorlib-text">
+                                        <h3>Добавить новую таблицу</h3>
+                                        <label>Имя таблицы</label>
+                                        <input  v-model="newTable.name" type="text" class="form-control" placeholder="Имя таблицы">
+                                        <label>Имя ID поля</label>
+                                        <input  v-model="newTable.idName" type="text" class="form-control" placeholder="Имя поля">
+                                        <p></p>
+                                        <button @click="createTable()" class="btn btn-primary btn-send-message" style="background: green">
+                                            Добавить таблицу
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12"><hr></div>
+
+                            <div class="col-md-12">
+                                <div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
+                                    <div class="colorlib-icon">
+                                        <i class="flaticon-engineering"></i>
+                                    </div>
+                                    <div class="colorlib-text">
+                                        <h3>Удалить таблицу ({{tableName}})</h3>
+                                        <button @click="deleteTable()" class="btn btn-primary btn-send-message" style="background: red">
+                                            Удалить таблицу
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-bottom-padded-md">
+                    <div class="col-md-12"><hr></div>
+                    <div class="col-md-12">
+                        <div class="colorlib-text">
+                            <h2 class="colorlib-heading">Данные таблицы</h2>
+                        </div>
+                        <!--<pre>{{tableData}}</pre>-->
+                        <button @click="addItem()" class="btn btn-primary btn-send-message" >
+                            Добавить новую запись
+                        </button>
+                        <table class="data-table-show">
+                            <tr>
+                                <th v-for="(values, fieldName) in tableInfo"  >{{fieldName}}</th>
+                            </tr>
+
+                            <tr v-for="(item, i) in tableData" >
+                                <template v-for="(info, fieldName) in tableInfo">
+                                    <td>
+                                        <input @input="editItem(fieldName, item)" v-model='item[fieldName]' type="text" >
+                                    </td>
+                                </template>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="customModal" v-if="showModalOne">
+            <div class="customModalTitle">
+                <button class="close" @click="showModalOpen">&times;</button>
+                Добавляем массив новых полей
+            </div>
+            <div class="customModalBody row"><p>
+                <div class="col-md-12">
+                    <div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
+                        <div class="colorlib-icon"><i class="flaticon-engineering"></i></div>
+
+                        <button class="btn btn-primary" @click="addModalField()" style="margin-left:8%" >Еще одно поле</button>
+                        <button class="btn btn-primary" @click="multipleAddField()" style="margin-left:20%" >Сохранить поля в таблицу</button>
+
+                        <template v-for="(values, i) in newFieldsJson">
+                            <div class="colorlib-text">
+                                <label>Имя поля</label>
+                                <input  v-model="newFieldsJson[i].name" type="text" class="form-control" placeholder="Имя поля">
+                                <label>Тип поля</label>
+                                <select v-model="newFieldsJson[i].type" class="form-control" placeholder="Тип поля">
+                                    <option value="INTEGER">Число</option>
+                                    <option value="VARCHAR">Строка</option>
+                                    <option value="TEXT">Текст</option>
+                                </select>
+                            </div><hr>
+                        </template>
+                        <div class="customModalFooter"></div>
+                    </div>
+                </div>
+            </p></div>
+        </div>
+
+
+        <div class="customModal" v-if="showModalConf">
+            <div class="customModalTitle">
+                <button class="close" @click="confModalOpen()">&times;</button>
+                Устанавливаем новые настройки базы
+            </div>
+            <div class="customModalBody row"><p>
+                <div class="col-md-12">
+                    <div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
+                        <!--<div class="colorlib-icon"><i class="flaticon-engineering"></i></div>-->
+                        <button class="btn btn-primary" @click="saveConfig()" style="margin-left:8%" >Сохранить настройки</button>
+                        <hr>
+                        <template v-for="(value, fname) in dbConf">
+                            <div class="colorlib-text">
+                                <label>{{fname}}</label>
+                                <input  v-model="dbConf[fname]" type="text" class="form-control" :placeholder="fname">
+                            </div><hr>
+                        </template>
+                        <div class="customModalFooter"></div>
+                    </div>
+                </div>
+             </p></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+<script src="https://unpkg.com/http-vue-loader"></script>
+
+
+<script src="app/services.js"></script>
+<script src="app/app.js"></script>
+
+<!-- jQuery
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/sticky-kit.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.countTo.js"></script>
+<script src="js/main.js"></script>
+-->
+
+</body>
+</html>
+

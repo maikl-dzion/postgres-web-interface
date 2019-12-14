@@ -1,0 +1,456 @@
+<!doctype html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Wonde - универсальный бизнес шаблон сайта</title>
+
+    <link href="css\styles.css" rel="stylesheet">
+    <link href="css\font-awesome.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js\jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js\common.js"></script>
+	<script type="text/javascript" src="js\jquery.carousel-content.min.js"></script>
+	<script type="text/javascript" src="js\jquery.mixitup.min.js"></script>
+	<script type="text/javascript" src="js\carousel-clients-settings.js"></script>
+	<script type="text/javascript" src="js\portfolio-settings.js"></script>
+</head>
+
+	
+	
+	<body class="light-bg">
+
+		
+		<!-- Main Container -->
+		
+		<div class="main-container">
+
+					
+			<div class="topbar-outer dark">
+				<div class="topbar content-width">
+
+					
+					<!-- Logo -->
+					
+					<div class="table fullheight">
+						<div class="table-cell fullheight middle">
+							<div class="logo"><a href="index.html"><img alt="" src="images\topbar\logo_white.png" height="17"></a></div>
+						</div>
+					</div>
+					
+					<!-- END Logo -->
+					
+
+					
+					<!-- Social Icons -->
+					
+					<ul class="topsocial">
+						<li><a href="#"><i class="fa fa-linkedin-square"></i><div class="tooltip">LinkedIn</div></a></li>
+						<li><a href="#"><i class="fa fa-facebook"></i><div class="tooltip">Facebook</div></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i><div class="tooltip">Twitter</div></a></li>
+						<li><a href="#"><i class="fa fa-google-plus"></i><div class="tooltip">Google+</div></a></li>
+					</ul>
+					
+					<!-- END Social Icons -->
+					
+
+					
+					<!-- Main Navigation -->
+					
+				<ul class="topnav">
+                    <li><a href="index.html">Главная</a>
+                    </li>
+                    <li><a href="about.html">О компании</a>
+                    </li>
+                    <li><a href="portfolio.html" class="drop current">Проекты</a>
+                        <ul>
+                            <li><a href="#">Название проекта №1</a></li>
+                            <li><a href="#">Название проекта №2</a></li>
+                            <li><a href="#">Название проекта №3</a></li>
+                            <li><a href="#">Название проекта №4</a></li>
+                            <li><a href="#">Название проекта №5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html" class="drop">Новости</a>
+                        <ul>
+                            <li><a href="blog.html">Категории</a>
+                            </li>
+                            <li><a href="blog-post.html">Описание новости</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Контакты</a>
+                    </li>
+                </ul>
+					
+					<!-- END Main Navigation -->
+					
+
+					
+					<!-- Mobile Navigation -->
+					
+					<!-- Show/Hide Menu Button -->
+					
+					<a href="#" class="mobilenav-click">
+					<div class="mobilenav-button-container">
+						<div class="mobilenav-button-inner">
+							<!-- Set "white" or "dark" -->
+							<div class="mobilenav-button"></div>
+						</div>
+					</div>
+					</a>
+					
+					<!-- END Show/Hide Menu Button -->
+					
+
+					
+					<!-- Navigation Menu (Populated using jQuery) -->
+					
+					<div class="mobilenav-container">
+						<ul class="mobilenav">
+						</ul>
+					</div>
+					
+					<!-- END Navigation Menu
+					
+					<!-- END Mobile Navigation -->
+					
+
+				</div>
+			</div>
+			
+			<!-- END Top Bar -->
+			
+
+			
+			<!-- Main Content -->
+			
+			<div class="main-content">
+				<div class="main-content-inner content-width">
+
+					<div class="relative">
+						
+						<!-- Page Title -->
+						
+						<h1>Наши последние проекты</h1>
+						
+						<!-- END Title -->
+						
+
+						
+						<!-- Filters -->
+						
+						<!-- Ensure all filter tags are in the "show all" data-filter -->
+						<div class="portfolio-filtering">
+							<ul id="portfolio-filters">
+								<li><span class="filter active" data-filter="branding coding identity">Все</span></li>
+								<li><span class="filter" data-filter="branding">Новые</span></li>
+								<li><span class="filter" data-filter="coding">Популярные</span></li>
+								<li><span class="filter" data-filter="identity">Лучшие</span></li>
+							</ul>
+						</div>
+						
+						<!-- END Filters -->
+						
+					</div>
+
+					
+					<!-- 4 Column Portfolio Grid -->
+					
+					<!-- Add filter tags to each li class -->
+					<ul class="column-container grid" id="portfolio">
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item branding">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview1.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item coding">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview2.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item branding identity">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview3.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item identity">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview4.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item coding">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview5.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item branding">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview6.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item identity">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview7.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item branding identity">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview8.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item branding">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview9.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item branding">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview10.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item branding">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview11.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+						
+						<!-- One Fourth -->
+						
+						<li class="column-one-fourth portfolio-item branding">
+							<!-- Image -->
+							<a href="#" class="image-link"><img alt="" src="images\placeholders\preview12.jpg" class="fullwidth"></a>
+							<!-- Title -->
+							<h3><a href="#">Название проекта</a></h3>
+							<!-- Tags -->
+							<div class="tags">Описание проекта</div>
+						</li>
+						
+						<!-- END One Fourth -->
+						
+
+					</ul>
+					
+					<!-- END 4 Column Portfolio Grid -->
+					
+
+
+				</div>
+			</div>
+			
+			<!-- END Main Content -->
+			
+
+			<div class="footer">
+                <div class="content-width">
+
+
+                    <!-- Four Columns -->
+
+                    <div class="column-container">
+
+                        <div class="column-one-fourth">
+                            <img alt="" src="images\topbar\logo_white.png" height="17" width="57" class="logo">
+                            <p>Маркетингово-ориентированное издание, как следует из вышесказанного, редко соответствует рыночным ожиданиям.</p>
+                            <p>Психологическая среда, безусловно, порождает продуктовый ассортимент.</p>
+                            <p><a href="about.html">Читать далее</a>
+                            </p>
+                        </div>
+
+                        <div class="column-one-fourth">
+                            <img alt="" src="images\topbar\logo_white.png" height="17" width="57" class="logo">
+                            <p>Маркетингово-ориентированное издание, как следует из вышесказанного, редко соответствует рыночным ожиданиям.</p>
+                            <p>Психологическая среда, безусловно, порождает продуктовый ассортимент.</p>
+                            <p><a href="about.html">Читать далее</a>
+                            </p>
+                        </div>
+
+                        <div class="column-one-fourth">
+                            <h3>Галерея</h3>
+                            <div class="footer-flickr-container">
+                                <script type="text/javascript" src="js\flickr.js"></script>
+                            </div>
+                        </div>
+                        <div class="column-one-fourth">
+
+                            <h3>Подписаться</h3>
+                            <div class="footer-newsletter">
+                                <form id="newsletter" name="newsletter" method="post" action="#">
+                                    <div class="container">
+                                        <input type="text" name="name" class="textbox" placeholder="Email Address">
+                                        <input type="submit" name="submit" id="submit" value="Готово" class="button">
+                                    </div>
+                                </form>
+                            </div>
+
+                            <h3>Ждем Вас</h3>
+
+                            <ul class="footer-social">
+                                <li>
+                                    <a href="#"><i class="fa fa-linkedin-square"></i><div class="tooltip">LinkedIn</div></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-facebook"></i><div class="tooltip">Facebook</div></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-twitter"></i><div class="tooltip">Twitter</div></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-google-plus"></i><div class="tooltip">Google+</div></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-youtube"></i><div class="tooltip">YouTube</div></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-pinterest"></i><div class="tooltip">Pinterest</div></a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="footer-lower-container">
+
+                        <ul class="footer-lower">
+                            <li><a href="index.html">Главная</a>
+                            </li>
+                            <li><a href="about.html">О нас</a>
+                            </li>
+                            <li><a href="portfolio.html">Проекты</a>
+                            </li>
+                            <li><a href="blog.html">Новости</a>
+                            </li>
+                            <li><a href="contact.html">Контакты</a>
+                            </li>
+                        </ul>
+
+                        <div class="footer-copyright">
+                            &copy; 2016 | Wonde - универсальный бизнес шаблон сайта
+                        </div>
+
+                    </div>
+
+                    <a class="top-of-page-link" href="#"><i class="fa fa-chevron-up"></i></a>
+
+                </div>
+            </div>
+
+		</div>
+		
+		<!-- END Main Container -->
+		
+
+	</body>
+</html>

@@ -1,0 +1,9 @@
+<?php 
+ return array(
+ 'host' => '185.63.191.96' 
+,'dbname' => 'reestrdb' 
+,'user' => 'reestr_user' 
+,'passwd' => '123456' 
+,'driver' => 'pgsql' 
+,'port' => '5432' 
+); 

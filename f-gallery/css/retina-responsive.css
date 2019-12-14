@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* Retina Ready Images */
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
+h1#logo a { background:url(../images/bg-logo%402x.png) center no-repeat; background-size:60px 52px; }
+
+.map {background:url(../images/icons/bg-map%402x.png) no-repeat center left; background-size:48px 48px;  }
+.winner {background:url(../images/icons/bg-winner%402x.png) no-repeat center; background-size:48px 48px; }
+.time {background:url(../images/icons/bg-time%402x.png) no-repeat center; background-size:48px 48px; }
+.pig {background:url(../images/icons/bg-pig%402x.png) no-repeat center; background-size:48px 48px; }
+.adjust {background:url(../images/icons/bg-adjust%402x.png) no-repeat center; background-size:48px 48px; }
+.team {background:url(../images/icons/bg-team%402x.png) no-repeat center; background-size:48px 48px; }
+.works {background:url(../images/icons/bg-works%402x.png) no-repeat center; background-size:48px 48px; }
+.chat {background:url(../images/icons/bg-chat%402x.png) no-repeat center; background-size:48px 48px; }
+.notes {background:url(../images/icons/bg-notes%402x.png) no-repeat center; background-size:48px 48px; }
+.camera {background:url(../images/icons/bg-camera%402x.png) no-repeat center; background-size:48px 48px; }
+.illustration {background:url(../images/icons/bg-illustration%402x.png) no-repeat center; background-size:48px 48px; }
+.social {background:url(../images/icons/bg-social%402x.png) no-repeat center; background-size:48px 48px; }
+.vector {background:url(../images/icons/bg-vector%402x.png) no-repeat center; background-size:48px 48px; }
+.commerce {background:url(../images/icons/bg-commerce%402x.png) no-repeat center; background-size:48px 48px; }
+.search {background:url(../images/icons/bg-search%402x.png) no-repeat center; background-size:48px 48px; }
+.like { background:url(../images/icons/bg-like%402x.png) center no-repeat; background-size:48px 48px; }
+.share { background:url(../images/icons/bg-share%402x.png) center no-repeat; background-size:48px 48px; }
+.document { background:url(../images/icons/bg-document%402x.png) center no-repeat; background-size:48px 48px; }
+.apple { background:url(../images/icons/bg-apple%402x.png) center no-repeat; background-size:48px 48px; }
+.balance { background:url(../images/icons/bg-balance%402x.png) center no-repeat; background-size:48px 48px; }
+.beaker { background:url(../images/icons/bg-beaker%402x.png) center no-repeat; background-size:48px 48px; }
+.beer { background:url(../images/icons/bg-beer%402x.png) center no-repeat; background-size:48px 48px; }
+.books { background:url(../images/icons/bg-books%402x.png) center no-repeat; background-size:48px 48px; }
+.box { background:url(../images/icons/bg-box%402x.png) center no-repeat; background-size:48px 48px; }
+.cake { background:url(../images/icons/bg-cake%402x.png) center no-repeat; background-size:48px 48px; }
+.calculator { background:url(../images/icons/bg-calculator%402x.png) center no-repeat; background-size:48px 48px; }
+.cd { background:url(../images/icons/bg-cd%402x.png) center no-repeat; background-size:48px 48px; }
+.champagne { background:url(../images/icons/bg-champagne%402x.png) center no-repeat; background-size:48px 48px; }
+.chart { background:url(../images/icons/bg-chart%402x.png) center no-repeat; background-size:48px 48px; }
+.cheese { background:url(../images/icons/bg-cheese%402x.png) center no-repeat; background-size:48px 48px; }
+.court { background:url(../images/icons/bg-court%402x.png) center no-repeat; background-size:48px 48px; }
+.delivery { background:url(../images/icons/bg-delivery%402x.png) center no-repeat; background-size:48px 48px; }
+.dvd { background:url(../images/icons/bg-dvd%402x.png) center no-repeat; background-size:48px 48px; }
+.eco { background:url(../images/icons/bg-eco%402x.png) center no-repeat; background-size:48px 48px; }
+.film { background:url(../images/icons/bg-film%402x.png) center no-repeat; background-size:48px 48px; }
+.grape { background:url(../images/icons/bg-grape%402x.png) center no-repeat; background-size:48px 48px; }
+.hot { background:url(../images/icons/bg-hot%402x.png) center no-repeat; background-size:48px 48px; }
+.house { background:url(../images/icons/bg-house%402x.png) center no-repeat; background-size:48px 48px; }
+.icecream { background:url(../images/icons/bg-icecream%402x.png) center no-repeat; background-size:48px 48px; }
+.joystick { background:url(../images/icons/bg-joystick%402x.png) center no-repeat; background-size:48px 48px; }
+.keynote { background:url(../images/icons/bg-keynote%402x.png) center no-repeat; background-size:48px 48px; }
+.link { background:url(../images/icons/bg-link%402x.png) center no-repeat; background-size:48px 48px; }
+.magic { background:url(../images/icons/bg-magic%402x.png) center no-repeat; background-size:48px 48px; }
+.mail { background:url(../images/icons/bg-mail%402x.png) center no-repeat; background-size:48px 48px; }
+.microphone { background:url(../images/icons/bg-microphone%402x.png) center no-repeat; background-size:48px 48px; }
+.network { background:url(../images/icons/bg-network%402x.png) center no-repeat; background-size:48px 48px; }
+.palette { background:url(../images/icons/bg-palette%402x.png) center no-repeat; background-size:48px 48px; }
+.plaster { background:url(../images/icons/bg-plaster%402x.png) center no-repeat; background-size:48px 48px; }
+.player { background:url(../images/icons/bg-player%402x.png) center no-repeat; background-size:48px 48px; }
+.polaroid { background:url(../images/icons/bg-polaroid%402x.png) center no-repeat; background-size:48px 48px; }
+.printer { background:url(../images/icons/bg-printer%402x.png) center no-repeat; background-size:48px 48px; }
+.pulse { background:url(../images/icons/bg-pulse%402x.png) center no-repeat; background-size:48px 48px; }
+.quote { background:url(../images/icons/bg-quote%402x.png) center no-repeat; background-size:48px 48px; }
+.radio { background:url(../images/icons/bg-radio%402x.png) center no-repeat; background-size:48px 48px; }
+.recorder { background:url(../images/icons/bg-recorder%402x.png) center no-repeat; background-size:48px 48px; }
+.scissors { background:url(../images/icons/bg-scissors%402x.png) center no-repeat; background-size:48px 48px; }
+.select { background:url(../images/icons/bg-select%402x.png) center no-repeat; background-size:48px 48px; }
+.serving { background:url(../images/icons/bg-serving%402x.png) center no-repeat; background-size:48px 48px; }
+.share { background:url(../images/icons/bg-share%402x.png) center no-repeat; background-size:48px 48px; }
+.shop { background:url(../images/icons/bg-shop%402x.png) center no-repeat; background-size:48px 48px; }
+.shopping { background:url(../images/icons/bg-shopping%402x.png) center no-repeat; background-size:48px 48px; }
+.smartphone { background:url(../images/icons/bg-smartphone%402x.png) center no-repeat; background-size:48px 48px; }
+.sofa { background:url(../images/icons/bg-sofa%402x.png) center no-repeat; background-size:48px 48px; }
+.syringe { background:url(../images/icons/bg-syringe%402x.png) center no-repeat; background-size:48px 48px; }
+.tape { background:url(../images/icons/bg-tape%402x.png) center no-repeat; background-size:48px 48px; }
+.target { background:url(../images/icons/bg-target%402x.png) center no-repeat; background-size:48px 48px; }
+.television { background:url(../images/icons/bg-television%402x.png) center no-repeat; background-size:48px 48px; }
+.video { background:url(../images/icons/bg-video%402x.png) center no-repeat; background-size:48px 48px; }
+.walkman { background:url(../images/icons/bg-walkman%402x.png) center no-repeat; background-size:48px 48px; }
+.zoom { background:url(../images/icons/bg-zoom%402x.png) center no-repeat; background-size:48px 48px; }
+.tags { background:url(../images/icons/bg-tags%402x.png) center no-repeat; background-size:48px 48px; }
+
+.flex-direction-nav .flex-next {background:url(../images/bg-next%402x.png) center no-repeat; background-size:48px 48px; }
+.flex-direction-nav .flex-prev {background:url(../images/bg-prev%402x.png) center no-repeat; background-size:48px 48px; }
+
+.fancybox-close {background: url(../images/bg-close%402x.png) center no-repeat; background-size:48px 48px;}
+.fancybox-prev span {background: url(../images/bg-prev%402x.png) center no-repeat; background-size:48px 48px;}
+.fancybox-next span {background: url(../images/bg-next%402x.png) center no-repeat; background-size:48px 48px;}
+}
+
+/* Desktop-only rules */
+@media only screen and (min-width: 1300px) and (max-width: 1599px) {
+    .container {width:1204px; }
+}
+
+/* Desktop-only rules */
+@media only screen and (min-width: 980px) and (max-width: 1299px) {
+    .container {width:903px; }
+	.col3-3, .col3-3.grey, .col4-3 { width:601px; height:auto; }
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    .container {width:602px; }
+    .col3-3, .col3-3.grey, .col4-3 { width:601px; height:auto; }
+	footer .social-list {margin-left:0 }
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+    .container {width:301px; }
+    .col2-3, .col2-3.grey, .col2-3.white, .col2-3.white-bottom, .col3-3, .col3-3.grey, .col3-3.white, .col4-3 { width:300px; height:auto;  }
+    .col2-3.grey, .col2-3.grey-bottom { padding:30px 35px 17px 35px; }
+	.col2-3.grey-bottom h3, .col2-3.grey h3, h2 {font-size:24px; line-height:31px; }
+	h2 {letter-spacing:0; margin:0; font-weight:400 }
+	.col2-3 p.small {padding:0 0 12px !important }
+	footer .social-list {margin-left:0 }
+	#map {width:300px; height:280px;}
+	.col2-3 ul.unordered-list { font-size:16px; line-height:1.5; margin-top:0px; padding:0px 0px 13px 30px; }
+}
+
+/* Small mobile sizes */
+@media only screen and (max-width: 399px){
+    #header{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .pushed-left #header > .logo-wrapper > .tagline,
+    .pushed-left-alt #header > .logo-wrapper > .tagline{
+        display: none !important;
+    }
+}

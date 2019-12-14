@@ -1,0 +1,107 @@
+@charset "utf-8";
+ @media (min-width: 980px) {
+ #header, #footer {padding-left:0; padding-right:0 }
+ header .containing-wrapper, .containing-wrapper.menu, footer .containing-wrapper {
+padding:0;
+width:1505px;
+position:relative;
+margin:0 auto;
+}
+ #menu-button, #menu-close-button {
+ display: none;
+}
+ #main-nav {
+ background-color: transparent;
+ padding: 0;
+ position: relative;
+ top: -68px;
+ right: 0;
+ float: right;
+ width: auto;
+ z-index: 2000;
+}
+ #options {
+ float: left;
+ padding: 0 2px 0 10px;
+}
+ #main-nav > ul > li {
+ float: left;
+ padding: 7px 0px 17px;
+ margin:0 10px;
+ position: relative;
+}
+ #main-nav > ul > li.active > a, #main-nav > ul > li > a:hover, #main-nav > ul > li > a:focus, #main-nav > ul > li > a:active {
+ color: #fff;
+}
+ #main-nav > ul .active > a, #main-nav > ul a.active, #main-nav li a:hover, #options li a.current, a.selected {
+ color: #fff !important;
+}
+ #main-nav .social-links {
+ float: left;
+ padding: 0;
+}
+ #main-nav .social-list {
+ margin-left: 20px;
+ margin-right:40px;
+}
+ .containing-wrapper.menu #main-nav .social-list {
+margin-right:-3px
+}
+ #main-nav .social-list li {
+ float: left;
+ margin-right: 2px;
+ margin-top: 7px;
+ padding: 0 2px;
+}
+ #main-nav .social-list li a:hover, #main-nav .social-list li a:focus, #main-nav .social-list li a:active {
+ color: #2b2b2b;
+}
+ .sub-nav-toggle {
+ position: relative;
+}
+ #main-nav > ul > li > ul.sub-nav.hidden, #main-nav > ul > li > ul.sub-nav, .sub-nav-toggle + ul.sub-nav.hidden, .sub-nav-toggle + ul.sub-nav {
+ display: block;
+ opacity: 0.0;
+ top: 0px;
+}
+ #main-nav > ul > li:hover > ul.sub-nav.hidden, #main-nav > ul > li:hover > ul.sub-nav, .sub-nav-toggle:focus + ul.sub-nav.hidden, .sub-nav-toggle:focus + ul.sub-nav {
+ display: block;
+ visibility: visible;
+ position: absolute;
+ top: 38px;
+ opacity: 1.0;
+ -webkit-transition: opacity ease 0.42s, top ease 0.32s;
+ transition: opacity ease 0.42s, top ease 0.32s;
+}
+ #main-nav > ul > li > .sub-nav {
+ background: none repeat scroll 0 0 #fff;
+ padding: 17px 10px;
+ position: absolute;
+ left:50%;
+ margin-left:-70px;
+ width:140px;
+ text-align:center
+}
+ #main-nav > ul > li > .sub-nav > li {
+ float: none;
+ padding-top:0px;
+padding-bottom:0px;
+}
+ #main-nav > ul > li > .sub-nav > li > a {
+ display: block;
+ padding: 6px 7px;
+ color: #8e8e8e;
+}
+ #main-nav > ul > li > .sub-nav > li > a:hover {
+ color: #2b2b2b;
+}
+}
+@media only screen and (min-width: 980px) and (max-width: 1299px) {
+ header .containing-wrapper, .containing-wrapper.menu, footer .containing-wrapper {
+width:903px;
+}
+}
+@media only screen and (min-width: 1300px) and (max-width: 1599px) {
+ header .containing-wrapper, .containing-wrapper.menu, footer .containing-wrapper {
+width:1204px;
+}
