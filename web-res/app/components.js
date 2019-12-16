@@ -224,6 +224,7 @@ Vue.component('sql-query-form', {
                        <option value="query" >Выборка (query)</option>
                        <option value="exec"  >Выполнение (exec)</option>
                        <option value="add_fields" >Добавить новые поля в таблицу</option>
+                       <option value="add_table"  >Добавить новую таблицу</option>
                 </select>
                 
                 <!--<input v-model="sqlCommandType" style="font-style: italic; width:20%; height: 34px;"-->

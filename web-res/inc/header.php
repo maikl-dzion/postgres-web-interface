@@ -30,17 +30,27 @@
                             <div class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right" >
 
-                                    <li class="active" >
-                                        <a class="smoth-scroll" href="<?php echo SITE_URL;?>index.php?page=tables">
-                                            Таблицы<div class="ripple-wrapper"></div>
-                                        </a>
-                                    </li>
+<!--                                    <li class="active" >-->
+<!--                                        <a class="smoth-scroll" href="--><?php //echo SITE_URL;?><!--index.php?page=common">-->
+<!--                                            Главная <div class="ripple-wrapper"></div>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
 
-                                    <li><a class="smoth-scroll" href="<?php echo SITE_URL;?>index.php?page=tableData"  >Данные</a></li>
-                                    <li><a class="smoth-scroll" href="<?php echo SITE_URL;?>index.php?page=databases"  >Базы</a></li>
-                                    <li><a class="smoth-scroll" href="<?php echo SITE_URL;?>index.php?page=dbUsers"    >Пользователи</a></li>
-                                    <li><a class="smoth-scroll" href="<?php echo SITE_URL;?>index.php?page=dbSettings" >Настройки</a></li>
-                                    <li><a class="smoth-scroll" href="<?php echo SITE_URL;?>index.php?page=common" >Common</a></li>
+                                    <?php foreach ($topMenu as $key => $item) { ?>
+
+                                        <li><a class="smoth-scroll"
+                                               href="<?php echo SITE_URL;?>index.php?page=<?php echo $key;?>" >
+                                               <?php echo $item['title'];?>
+                                        </a></li>
+
+
+<!--                                        <li><a class="smoth-scroll" href="--><?php //echo SITE_URL;?><!--index.php?page=data"       >Данные</a></li>-->
+<!--                                        <li><a class="smoth-scroll" href="--><?php //echo SITE_URL;?><!--index.php?page=database"   >Базы</a></li>-->
+<!--                                        <li><a class="smoth-scroll" href="--><?php //echo SITE_URL;?><!--index.php?page=scheme"     >Схема</a></li>-->
+<!--                                        <li><a class="smoth-scroll" href="--><?php //echo SITE_URL;?><!--index.php?page=users"      >Пользователи</a></li>-->
+<!--                                        <li><a class="smoth-scroll" href="--><?php //echo SITE_URL;?><!--index.php?page=settings"   >Настройки</a></li>-->
+
+                                    <?php } ?>
 
                                 </ul>
                             </div>

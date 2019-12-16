@@ -15,8 +15,10 @@ define('ROOT_DIR', __DIR__);
 define('CONF_DIR', ROOT_DIR . '/config');
 define('CONF_FILE_NAME', CONF_DIR . '/conf.php');
 
-require_once ROOT_DIR . '/classes/DataBaseControlPanel.php';
-require_once ROOT_DIR . '/classes/ControlDispatch.php';
+require_once ROOT_DIR . '/classAutoloader.php';
+
+//require_once ROOT_DIR . '/classes/DataBaseControlPanel.php';
+//require_once ROOT_DIR . '/classes/ControlDispatch.php';
 
 $routes = routerInit();
 
@@ -40,11 +42,10 @@ $routes = routerInit();
 // var url = 'ADD_FIELD/users/email/VARCHAR;
 // var url = 'ADD_FIELD/' + this.tableName + '/' + name + '/' + type;
 
-$dbConf    = require CONF_FILE_NAME;       // --- получаем конфиги
-// print_r($_SERVER); die;
-$dbcontrol = new ControlDispatch($dbConf); // --- создаем объект
-$result    = $dbcontrol->route($routes);   // --- выполняем
-getResponse($result);                      // --- возвращаем результат
+$config    = require CONF_FILE_NAME;         // --- получаем конфиги
+$dbcontrol = new RequestDispatcher($config); // --- создаем объект
+$result    = $dbcontrol->route($routes);     // --- выполняем
+getResponse($result);                        // --- возвращаем результат
 
 
 ///////////////////////////////////

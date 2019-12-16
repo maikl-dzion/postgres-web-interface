@@ -39,3 +39,8 @@
    color:goldenrod;
 }
 
+
+input,
+select {
+    cursor:pointer;
+}

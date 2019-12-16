@@ -13,6 +13,16 @@
     define('FOOTER_PAGE', 'inc/footer.php');
     define('HEAD'       , 'inc/head.php');
 
+    $topMenu = array(
+        'common'   => array('title' => 'Главная'),
+        'data'     => array('title' => 'Данные'),
+        'database' => array('title' => 'Базы'),
+        'users'    => array('title' => 'Пользователи'),
+        'scheme'   => array('title' => 'Схема'),
+        'tables'   => array('title' => 'Таблицы'),
+        'query_builder' => array('title' => 'Запросы'),
+    );
+
     //print_r($_SERVER); die;
     //print_r(explode('/', $_SERVER['REQUEST_URI'])); die;
     $siteUrl = '/';
@@ -26,7 +36,7 @@
 
     // print_r($uriArr); die($siteUrl);
 
-    $pageName = 'tables';
+    $pageName = 'common';
     if(!empty($_GET['page'])) {
         $pageName =  $_GET['page'];
     }
