@@ -40,43 +40,19 @@ class DataBaseControlPanel {
     }
 
 
-    protected function dbErrorHandler($err, $query, $print = false) {
+    protected function dbErrorHandler($err) {
 
-        // https://postgrespro.ru/docs/postgrespro/9.5/errcodes-appendix   ссылка на ошибки
-        $alert = 'Неопределенная ошибка';
+        $alertMessage = 'Неопределенная ошибка';
 
         $message = $err->getMessage();
         $code    = $err->getCode();
         $file    = $err->getFile();
         $line    = $err->getLine();
-
         // $errorInfo = $err->getErrorInfo();
-        switch($code) {
-            case '42701' : $alert = "Такое поле уже существует (duplicate_column) <br>";break;
-            case '42601' : $alert = "Синтаксическая ошибка (syntax_error) <br>"; break;
 
-            default : $alert = " Неопределенная ошибка <br>"; break;
-        }
 
-        $alertMessage = $alert . "<br> Sql запрос :: $query <br>
-                                  <br> Text :: $message <br>
-                                  <br> Code :: $code <br>
-                                 ";
+        print_r($alertMessage);
 
-        $error = array(
-            'alert'   => $alertMessage,
-            'message' => $message,
-            'code'    => $code,
-            'line'    => $line,
-            'file'    => $file,
-        );
-
-        // print_r($error['alert']);
-
-        if($print)
-           print_r($alertMessage);
-
-        return $error;
     }
 
     protected function exec($query) {
@@ -86,11 +62,9 @@ class DataBaseControlPanel {
         } catch (PDOException $err) {
             // $errorMessage = $err->getMessage();
             // $errorCode    = $err->getCode();
-            $result['error'] = $this->dbErrorHandler($err, $query);
-            // getError($result);
+            $this->dbErrorHandler($err);
             // print_r($errorMessage);
-            // die('--- DB ERROR MESSAGE ---');
-            // print_r($result); die;
+            die('db function exec error');
         }
 
         return $result;
@@ -167,11 +141,11 @@ class DataBaseControlPanel {
                   $autoIncState = true;
               $values['auto_increment'] = $autoIncState;
 
-              $inputType = 'VARCHAR';
+              $inputType = 'text';
               switch($values['data_type']) {
-                  case 'character varying' : $inputType = 'VARCHAR'; break;
-                  case 'integer'           : $inputType = 'INTEGER'; break;
-                  case 'text'              : $inputType = 'TEXT'; break;
+                  case 'character varying' : $inputType = 'text';     break;
+                  case 'integer'           : $inputType = 'int';      break;
+                  case 'text'              : $inputType = 'textarea'; break;
               }
               $values['input_type'] = $inputType;
 
@@ -245,46 +219,16 @@ class DataBaseControlPanel {
         return $result;
     }
 
-    protected function execSqlCommand($command, $commandType = 'query', $tableName = '') {
+    protected function execSqlCommand($command, $commandType = 'query') {
         $result = array();
-        // print_r($commandType); die;
-        // $command = textareaHandler($command);
         switch($commandType) {
             case 'query' :
                 $result = $this->queryPrepareExec($command);
                 break;
+
             case 'exec' :
-                // $result = $this->exec($command);
-                break;
-            case 'add_fields' :
-                $items = textareaHandler($command);
-                // print_r($items); die;
-                if((!empty($items)) && $tableName) {
-                    foreach($items as $key => $value) {
-                        $name = $size = '';
-                        $type = 'varchar';
-                        $item = array();
-                        $fieldItem = explode(" ", $value);
-
-                        foreach($fieldItem as $k => $v) {
-                           if($v) $item[] = $v;
-                        }
-
-                        if(!isset($item[0]))
-                            return array();
-
-                        $name = $item[0];
-                        if(isset($item[1])) $type = $item[1];
-                        if(isset($item[2])) $size = $item[2];
-
-                        // prinr_r($item); die;
-
-                        $result[] = $this->addField($tableName, $name, $type, $size);
-                    }
-                }
 
                 break;
-
         }
         return $result;
     }
@@ -298,8 +242,7 @@ class DataBaseControlPanel {
                 {$idName} SERIAL
             );
           ";
-         $result = $this -> exec($query);
-         // print_r($result); die();
+         $result = $this -> pdo -> exec($query);
          return $result;
     }
 
@@ -308,7 +251,7 @@ class DataBaseControlPanel {
             ALTER TABLE {$tableName}
             RENAME TO {$newTableName};
         ";
-        $result = $this -> exec($query);
+        $result = $this -> pdo -> exec($query);
         return $result;
     }
 
@@ -316,7 +259,7 @@ class DataBaseControlPanel {
         $query = "
             DROP TABLE {$tableName}
         ";
-        $result = $this -> exec($query);
+        $result = $this -> pdo -> exec($query);
         return $result;
     }
 
@@ -324,7 +267,7 @@ class DataBaseControlPanel {
         $query = "
             DELETE FROM {$tableName} WHERE {$fieldName} = '{$fieldValue}';
         ";
-        $result = $this -> exec($query);
+        $result = $this -> pdo -> exec($query);
         return $result;
     }
 
@@ -352,9 +295,9 @@ class DataBaseControlPanel {
     protected function deleteField($tableName, $fieldName) {
         $query = "
             ALTER TABLE {$tableName}
-            DROP  COLUMN {$fieldName};
+            DROP  COLUMN  {$fieldName};
         ";
-        $result = $this -> exec($query);
+        $result = $this -> pdo -> exec($query);
         return $result;
     }
 
@@ -363,22 +306,7 @@ class DataBaseControlPanel {
             ALTER TABLE {$tableName}
             RENAME COLUMN {$oldFieldName} TO {$newFieldName};
         ";
-        $result = $this -> exec($query);
-        return $result;
-    }
-
-    protected function changeFieldType($tableName = '', $fieldName = '', $newType = '') {
-        //print_r($tableName); die;
-        if((is_array($tableName))) {
-            $tableName = $this->isParam(0);
-            $fieldName = $this->isParam(1);
-            $newType   = $this->isParam(2);
-        }
-        $query = "
-            ALTER TABLE {$tableName}
-            ALTER COLUMN {$fieldName} TYPE {$newType};
-        ";
-        $result = $this -> exec($query);
+        $result = $this -> pdo -> exec($query);
         return $result;
     }
 
@@ -387,7 +315,7 @@ class DataBaseControlPanel {
         $query  = "
             UPDATE {$tableName} SET {$fieldName} = '{$newValue}' WHERE {$idName} = {$itemId}
         ";
-        $result = $this ->exec($query);
+        $result = $this ->pdo->exec($query);
         return $result;
     }
 
@@ -406,7 +334,7 @@ class DataBaseControlPanel {
         $query  = "
            INSERT INTO {$tableName} ({$fname}) VALUES('test')
         ";
-        $result = $this ->exec($query);
+        $result = $this ->pdo->exec($query);
         return $result;
     }
 
@@ -503,7 +431,7 @@ class DataBaseControlPanel {
                                 ));
 
         $query = "CREATE USER {$userName} WITH PASSWORD '{$password}';";
-        $r1 = $this -> exec($query);
+        $r1 = $this -> pdo -> exec($query);
 
         if($dataBaseName)
             $r2 = $this->setUserPrivileges($userName, $dataBaseName);
@@ -525,7 +453,7 @@ class DataBaseControlPanel {
             $dbName   = $this->isParam(1);
         }
         $query = "GRANT ALL PRIVILEGES ON DATABASE {$dbName} TO {$userName};";
-        $result = $this -> exec($query);
+        $result = $this -> pdo -> exec($query);
         return $result;
     }
 
@@ -536,7 +464,7 @@ class DataBaseControlPanel {
             $dbName   = $this->isParam(1);
         }
         $query = "REVOKE ALL PRIVILEGES ON DATABASE {$dbName} FROM {$userName};";
-        $result = $this -> exec($query);
+        $result = $this -> pdo -> exec($query);
         return $result;
     }
 
@@ -546,7 +474,7 @@ class DataBaseControlPanel {
             $userName = $this->isParam(0);
         }
         $query = "ALTER USER {$userName} WITH SUPERUSER;";
-        $result = $this -> exec($query);
+        $result = $this -> pdo -> exec($query);
         return $result;
     }
 
@@ -564,7 +492,7 @@ class DataBaseControlPanel {
         }
 
         $query = "ALTER USER {$userName} WITH NOSUPERUSER;";
-        $result = $this -> exec($query);
+        $result = $this -> pdo -> exec($query);
         return $result;
     }
 

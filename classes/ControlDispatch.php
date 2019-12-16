@@ -145,7 +145,8 @@ class ControlDispatch extends DataBaseControlPanel {
             case 'EXEC_SQL_COMMAND' :
                 $command = $this->isEmpty($params, 0);
                 $commandType = $this->isEmpty($params, 1);
-                $res = $this->execSqlCommand($command, $commandType);
+                $tableName   = $this->isEmpty($params, 2);
+                $res = $this->execSqlCommand($command, $commandType, $tableName);
                 break;    
 
             case 'CURRENT_DB_USER' :

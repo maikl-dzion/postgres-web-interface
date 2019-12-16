@@ -189,4 +189,11 @@ function s2($data) {
     return $configData;
 }
 
+
+function textareaHandler($text) {
+    $result = explode("\n", $text);
+    return $result;
+}
+
+
 ?>

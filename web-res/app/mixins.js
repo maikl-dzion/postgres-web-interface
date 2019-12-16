@@ -186,9 +186,8 @@ const BaseMixin = {
 
         // Выполняем sql команды
         execSqlCommand(paramName = '', callback = null) {
-            var url = 'EXEC_SQL_COMMAND/' + this.sqlCommand + '/' + this.sqlCommandType;
+            var url = 'EXEC_SQL_COMMAND/' + this.sqlCommand + '/' + this.sqlCommandType + '/' + this.tableName;
             this.http(url).then(resp => {
-                // lg(resp);
                 if(paramName)
                    this[paramName] = resp;
                 if(callback)
@@ -206,8 +205,8 @@ const BaseMixin = {
 
         commonAction(actionName) {
             this.commonItem = [];
-            this.dbRoles = [];
-            this.commonItemName = '';
+            this.dbRoles    = [];
+            this.commonItemName = this.freeSqlCommandResult = '';
             this.commonActionName = actionName;
             var title = 'Левая панель';
             switch(this.commonActionName) {

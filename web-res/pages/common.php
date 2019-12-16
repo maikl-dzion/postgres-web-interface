@@ -10,6 +10,7 @@
 
     <div class="row" >
        <sql-query-form
+          :table_name="tableName"
           @get_query_response="sqlQueryResult"
        ></sql-query-form>
     </div> <hr>

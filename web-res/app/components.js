@@ -171,11 +171,19 @@ Vue.component('select-object-info', {
 
 //////////////////////////////////
 Vue.component('sql-query-form', {
-    // props : ['modal_id', 'wrap_class'],
+    props : ['table_name'],
     mixins: [Http, BaseMixin, dragMixin],
     data: function () {
         return { }
     },
+
+    computed: {
+        getTableName() {
+            this.tableName = this.table_name;
+            return this.tableName;
+        }
+    },
+
     methods: {
 
         queryExecute() {
@@ -190,14 +198,12 @@ Vue.component('sql-query-form', {
            this.$emit('get_query_response', { result : resp });
         },
 
-        // Выполняем sql команды
+        // // Выполняем sql команды
         // execSqlCommand(paramName = '', callback = null) {
         //     var url = 'EXEC_SQL_COMMAND/' + this.sqlCommand + '/' + this.sqlCommandType;
         //     this.http(url).then(resp = > {
-        //         if(paramName)
-        //             this[paramName] = resp;
-        //         if (callback)
-        //             callback(resp);
+        //         if(paramName)this[paramName] = resp;
+        //         if (callback) callback(resp);
         //     });
         // },
 
@@ -206,22 +212,25 @@ Vue.component('sql-query-form', {
      <div> 
           <div class="col-sm-12" style="padding: 0px; display: flex; height:45px; z-index:99">
           
-            <textarea 
-                v-model="sqlCommand" style="font-style: italic; width:70%; height: 100%;" 
-                type="text" class="form-control" placeholder="sql-запрос"
-            ></textarea>
-            
-            <select v-model="sqlCommandType" class="form-control" 
-                   style="margin:0px 5px 0px 5px;font-style: italic; width:20%; height: 100%" >
-                   <option value="query" >Выборка (query)</option>
-                   <option value="exec"  >Выполнение (exec)</option>
-            </select>
-            
-            <!--<input v-model="sqlCommandType" style="font-style: italic; width:20%; height: 34px;"-->
-                   <!--type="text" class="form-control" placeholder="тип команды : query / exec">-->
-                   
-            <button @click="queryExecute()"
-                    class="btn" style="width:20%; font-weight: bold;border-radius: 0px" >Выполнить sql-запрос</button>
+                <div style="display: none" >{{getTableName}}</div>
+                
+                <textarea 
+                    v-model="sqlCommand" style="font-style: italic; width:70%; height: 100%;" 
+                    type="text" class="form-control" placeholder="sql-запрос"
+                ></textarea>
+                
+                <select v-model="sqlCommandType" class="form-control" 
+                       style="margin:0px 5px 0px 5px;font-style: italic; width:20%; height: 100%" >
+                       <option value="query" >Выборка (query)</option>
+                       <option value="exec"  >Выполнение (exec)</option>
+                       <option value="add_fields" >Добавить новые поля в таблицу</option>
+                </select>
+                
+                <!--<input v-model="sqlCommandType" style="font-style: italic; width:20%; height: 34px;"-->
+                       <!--type="text" class="form-control" placeholder="тип команды : query / exec">-->
+                       
+                <button @click="queryExecute()"
+                        class="btn" style="width:20%; font-weight: bold;border-radius: 0px" >Выполнить sql-запрос</button>
           </div>
           
           <!--<div>{{freeSqlCommandResult}}  {{sqlCommandType}}</div> -->
