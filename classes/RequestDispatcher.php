@@ -188,8 +188,8 @@ class RequestDispatcher extends DbWebControlPanel {
                 break;
 
             case 'GET_TABLE_ID_NAME' :
-                $fieldsList = $this->getTableFields($tableName);
-                $res = $this->getTableIdName($fieldsList);
+                $fieldList = $this->getTableFields($tableName);
+                $res = $this->getAutoIncrementName($fieldList);
                 break;
 
             case 'GET_TABLE_DATA' :
@@ -265,30 +265,30 @@ class RequestDispatcher extends DbWebControlPanel {
         return $response['result'] = $res;
     }
 
-    protected function dbInit($config = array()) {
-
-        $pdo = null;
-
-        $host   = $config['host'];
-        $dbname = $config['dbname'];
-        $user   = $config['user'];
-        $passwd = $config['passwd'];
-        $driver = $config['driver'];
-        $port   = $config['port'];
-
-        $dsn = "$driver:host=$host;port=$port;dbname=$dbname;user=$user;password=$passwd";
-        $options = array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-        ,PDO::ATTR_EMULATE_PREPARES   => false );
-
-        try {
-            $pdo = new PDO($dsn, $user, $passwd, $options);
-        } catch (PDOException $err) {
-            $err->getMessage();
-        }
-
-        return $pdo;
-    }
+//    protected function dbInit($config = array()) {
+//
+//        $pdo = null;
+//
+//        $host   = $config['host'];
+//        $dbname = $config['dbname'];
+//        $user   = $config['user'];
+//        $passwd = $config['passwd'];
+//        $driver = $config['driver'];
+//        $port   = $config['port'];
+//
+//        $dsn = "$driver:host=$host;port=$port;dbname=$dbname;user=$user;password=$passwd";
+//        $options = array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+//        ,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+//        ,PDO::ATTR_EMULATE_PREPARES   => false );
+//
+//        try {
+//            $pdo = new PDO($dsn, $user, $passwd, $options);
+//        } catch (PDOException $err) {
+//            $err->getMessage();
+//        }
+//
+//        return $pdo;
+//    }
 
 }
 

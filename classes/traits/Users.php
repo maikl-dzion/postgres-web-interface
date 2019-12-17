@@ -4,16 +4,15 @@ trait Users {
 
     // получаем текущего пользователя
     protected function getCurrentDbUser(){
-        $query = "SELECT datname,usename,client_addr,client_port FROM pg_stat_activity";
-        $response = $this->queryPrepareExec($query);
-        return $response;
+        $query = "SELECT datname,usename,client_addr,client_port FROM pg_stat_activity ";
+        // lg($query);
+        return $this->select($query);
     }
 
     // получаем всех пользователей
     protected function getDbUsersList(){
         $query = "SELECT * from pg_user";
-        $response = $this->queryPrepareExec($query);
-        return $response;
+        return $this->select($query);
     }
 
     // Создать нового пользователя
@@ -107,7 +106,7 @@ trait Users {
             case  'w1user' :
             case  'postgres' :
                 // case  'reestrsrv' :
-                die("Пользователя {$userName} нельзя удалить,это системный пользователь");
+                die("Пользователя {$userName} нельзя удалить , это системный пользователь");
                 return;
         }
 

@@ -97,9 +97,9 @@ const BaseMixin = {
             selectFieldType : 'VARCHAR',
 
             tableFieldTypes : [
-                { name : 'INTEGER', title : 'Число'   , size : '' },
-                { name : 'VARCHAR', title : 'Строка'  , size : '255' },
-                { name : 'TEXT'   , title : 'Textarea', size : ''  },
+                { name : 'integer', title : 'Число'   , size : '' },
+                { name : 'varchar', title : 'Строка'  , size : '255' },
+                { name : 'text'   , title : 'Textarea', size : ''  },
             ],
 
         }

@@ -9,6 +9,8 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
+session_start();  // Запускаем сессию
+
 //getFileUsersConfig();
 
 define('ROOT_DIR', __DIR__);
@@ -195,6 +197,67 @@ function textareaHandler($text) {
     $result = explode("\n", $text);
     return $result;
 }
+
+
+function lg() {
+
+    $debugTrace = debug_backtrace();
+    $args = func_get_args();
+
+    $get = false;
+    $output = $traceStr = '';
+
+    $style = 'margin:10px; padding:10px; border:3px red solid;';
+
+    foreach ($args as $key => $value) {
+        $itemArr = array();
+        $itemStr = '';
+        is_array($value) ? $itemArr = $value : $itemStr = $value;
+        if ($itemStr == 'get') $get = true;
+        $line = print_r($value, true);
+        $output .= '<div style="' . $style . '" ><pre>' . $line . '</pre></div>';
+    }
+
+    foreach ($debugTrace as $key => $value) {
+        // if($key == 'args') continue;
+        $itemArr = array();
+        $itemStr = '';
+        is_array($value) ? $itemArr = $value : $itemStr = $value;
+        if ($itemStr == 'get') $get = true;
+        $line = print_r($value, true);
+        $output .= '<div style="' . $style . '" ><pre>' . $line . '</pre></div>';
+    }
+
+
+    if ($get)  return $output;
+
+    print $output;
+    //print '<pre>' . print_r($debug) . '</pre>';
+    die ;
+
+}
+
+//function lg() {
+//
+//    $out = '';
+//    $get = false;
+//    $style = 'margin:10px; padding:10px; border:3px red solid;';
+//    $args = func_get_args();
+//
+//    foreach ($args as $key => $value) {
+//        $itemArr = array();
+//        $itemStr = '';
+//        is_array($value) ? $itemArr = $value : $itemStr = $value;
+//        if ($itemStr == 'get')
+//            $get = true;
+//        $line = print_r($value, true);
+//        $out .= '<div style="' . $style . '" ><pre>' . $line . '</pre></div>';
+//    }
+//    if ($get)
+//        return $out;
+//    print $out;
+//    exit ;
+//}
 
 
 ?>

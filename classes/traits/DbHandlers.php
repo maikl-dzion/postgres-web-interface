@@ -2,26 +2,22 @@
 
 trait DbHandlers {
 
-    // функции по работе с базой и пользователем
-
-    // создаем базу
+    // -- Создаем базу и прикрепляем пользователя
     protected function createDatabase($dbName, $ownerName){
         $query = "CREATE DATABASE {$dbName} OWNER {$ownerName}";
-        $response = $this->exec($query);
-        return $response;
+        return $this->exec($query);
     }
 
-    // создаем новую базу
+    // -- Создаем новую базу
     protected function addNewDb($dbName = ''){
         if((is_array($dbName)) || (empty($dbName))) {
             $dbName = $this->isParam(0);
         }
         $query = "CREATE DATABASE {$dbName}";
-        $response = $this->exec($query);
-        return $response;
+        return $this->exec($query);
     }
 
-    // удаляем базу
+    // -- Удаляем базу
     protected function deleteDb($dbName = ''){
         if((is_array($dbName)) || (empty($dbName))) {
             $dbName = $this->isParam(0);
@@ -41,19 +37,16 @@ trait DbHandlers {
         return $response;
     }
 
-    // получаем все базы на сервере
+    // -- Получаем все базы на сервере
     protected function showDatabaseList(){
         $query = "SELECT * FROM pg_database;";
-        $response = $this->queryPrepareExec($query);
-        return $response;
+        return $this->select($query);
     }
 
-    // получаем текущею базу
+    // -- Получаем текущею базу
     protected function currentDatabase(){
         $query = "SELECT current_database()";
-        $response = $this->queryPrepareExec($query);
-        // print_r($response); die;
-        return $response;
+        return $this->select($query);
     }
 
 }

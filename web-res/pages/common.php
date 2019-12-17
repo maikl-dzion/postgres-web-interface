@@ -211,7 +211,7 @@
                                         @change="changeFieldType(fname, commonItem[fname]['input_type'])" class="form-control"
                                         style="font-style: italic; width:100%; height: 100%; height:100%;" >
                                         <option v-for="(item, i) in tableFieldTypes" :value="item.name" >
-                                            {{item.name}}
+                                            {{item.title}}
                                         </option>
                                 </select>
                             </div>

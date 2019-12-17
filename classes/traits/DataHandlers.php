@@ -34,18 +34,15 @@ trait DataHandlers {
             }
         }
 
-        $query  = "
-           INSERT INTO {$tableName} ({$fname}) VALUES('test')
-        ";
+        $query  = "INSERT INTO {$tableName} ({$fname}) VALUES('test')";
         $result = $this ->exec($query);
         return $result;
     }
 
     // -- Получаем данные из таблицы
     protected function getTableData($tableName){
-        $query = "SELECT * FROM {$tableName} ";
-        $response = $this->queryPrepareExec($query);
-        return $response;
+        $query = "SELECT * FROM {$tableName}";
+        return $this->select($query);
     }
 
 }
